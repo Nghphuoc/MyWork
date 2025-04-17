@@ -19,7 +19,6 @@ public class TransactionLogServiceImpl implements TransactionService {
     @Transactional(propagation = Propagation.REQUIRED)
     @Override
     public void logWithRequired(String message) {
-        // nếu log lỗi sẽ rollback lại các phương thức chữa trong hàm ở trên log
         log(message);
         throw new RuntimeException("Simulated log failure - REQUIRED");
     }
